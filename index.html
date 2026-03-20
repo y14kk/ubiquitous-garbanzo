@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Степан — лендинги под ключ</title>
+  <meta name="description" content="Лендинги и сайты-визитки под ключ. От идеи до готовой страницы за 2–7 дней. Без конструкторов, без подписок. Сайт полностью ваш.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://y14kk.github.io/ubiquitous-garbanzo/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://y14kk.github.io/ubiquitous-garbanzo/">
+  <meta property="og:title" content="Степан — лендинги под ключ">
+  <meta property="og:description" content="Лендинги и сайты-визитки под ключ. От идеи до готовой страницы за 2–7 дней. Без конструкторов, без подписок. Сайт полностью ваш.">
+  <meta property="og:image" content="https://y14kk.github.io/ubiquitous-garbanzo/og.webp">
+  <meta property="og:locale" content="ru_RU">
+
+  <!-- Twitter / Telegram preview -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://y14kk.github.io/ubiquitous-garbanzo/">
+  <meta name="twitter:title" content="Степан — лендинги под ключ">
+  <meta name="twitter:description" content="Лендинги и сайты-визитки под ключ. От идеи до готовой страницы за 2–7 дней. Без конструкторов, без подписок. Сайт полностью ваш.">
+  <meta name="twitter:image" content="https://y14kk.github.io/ubiquitous-garbanzo/og.webp">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Unbounded:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { overflow-x: hidden; background-color: #080C14; font-family: 'Inter', sans-serif; color: #E2E8F0; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4, .logo, .nav-links a, .badge, .stat-number, .ref-amount, .footer-logo { font-family: 'Unbounded', sans-serif; font-weight: 500; letter-spacing: -0.02em; }
+    h2 { font-size: 2rem; font-weight: 600; margin-bottom: 2rem; }
+    a, button { transition: all 0.2s ease; cursor: pointer; text-decoration: none; color: inherit; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+/* НАВБАР */
+.navbar { position: fixed; top: 0; left: 0; width: 100%; background: rgba(8,12,20,0.7); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid #1E2D42; z-index: 1000; padding: 16px 0; }
+.navbar .container { display: flex; align-items: center; justify-content: space-between; }
+.logo { font-size: 1.5rem; font-weight: 700; color: #3ECF8E; }
+.nav-links { display: flex; align-items: center; gap: 2rem; }
+.nav-links a { font-size: 0.95rem; font-weight: 500; color: #E2E8F0; border-bottom: 1px solid transparent; padding-bottom: 4px; }
+.nav-links a:hover { color: #3ECF8E; border-bottom-color: #3ECF8E; }
+.nav-btn { background: #3ECF8E; color: #080C14 !important; padding: 10px 20px !important; border-radius: 60px; font-weight: 600 !important; border: none; margin-left: 8px; white-space: nowrap; }
+.nav-btn:hover { background: #2fb57a; transform: scale(1.02); }
+.burger { display: none; flex-direction: column; gap: 6px; background: transparent; border: none; padding: 8px; cursor: pointer; }
+.burger span { width: 26px; height: 2px; background: #E2E8F0; transition: 0.3s; border-radius: 2px; }
+.burger.active span:nth-child(1) { transform: rotate(45deg) translate(6px,6px); }
+.burger.active span:nth-child(2) { opacity: 0; }
+.burger.active span:nth-child(3) { transform: rotate(-45deg) translate(6px,-6px); }
+.mobile-menu { display: none; position: fixed; top: 77px; left: 0; width: 100%; background: #0D1520; border-bottom: 1px solid #1E2D42; padding: 24px; flex-direction: column; gap: 20px; z-index: 999; transform: translateY(-10px); opacity: 0; visibility: hidden; transition: 0.3s; }
+.mobile-menu.open { transform: translateY(0); opacity: 1; visibility: visible; }
+.mobile-menu a { font-size: 1.2rem; font-family: 'Unbounded', sans-serif; color: #E2E8F0; }
+.mobile-menu .nav-btn { text-align: center; background: #3ECF8E; color: #080C14; padding: 14px; border-radius: 60px; }
+
+main { padding-top: 90px; }
+section { margin: 80px 0; }
+
+/* БЕЙДЖ */
+.badge { display: inline-flex; align-items: center; gap: 10px; background: rgba(62,207,142,0.1); border: 1px solid #3ECF8E; border-radius: 60px; padding: 8px 18px 8px 12px; margin-bottom: 24px; font-size: 0.9rem; color: #3ECF8E; }
+.pulse-dot { width: 10px; height: 10px; background: #3ECF8E; border-radius: 50%; box-shadow: 0 0 0 0 rgba(62,207,142,0.7); animation: pulse 1.8s infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(62,207,142,0.7); } 70% { box-shadow: 0 0 0 10px rgba(62,207,142,0); } 100% { box-shadow: 0 0 0 0 rgba(62,207,142,0); } }
+
+/* HERO */
+.hero-section { margin: 0 !important; padding: 60px 0; }
+.hero-inner { display: flex; align-items: center; gap: 0; min-height: 80vh; }
+.hero-content { flex: 1; padding-right: 40px; }
+.hero-photo { display: none; }
+
+.hero-title { font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 700; line-height: 1.1; max-width: 700px; margin-bottom: 20px; }
+.hero-sub { font-size: 1.2rem; color: #B0C0D0; max-width: 560px; margin-bottom: 32px; }
+.contact-label { color: #B0C0D0; font-size: 1rem; margin-bottom: 16px; }
+.contact-row { display: flex; flex-wrap: nowrap; gap: 12px; margin-bottom: 40px; }
+.social-btn { background: #0D1520; border: 1px solid #2A3A55; border-radius: 40px; font-weight: 500; transition: 0.2s; display: inline-flex; align-items: center; justify-content: center; color: #E2E8F0; white-space: nowrap; padding: 12px 24px; font-size: 1rem; }
+.social-btn:hover { background: #1E2D42; transform: translateY(-3px); border-color: #3ECF8E; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 500px; margin-top: 30px; }
+.stat-item { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.stat-item .stat-number { font-size: 2rem; font-weight: 700; color: #3ECF8E; display: block; line-height: 1.2; }
+.stat-item p { color: #B0C0D0; font-size: 0.9rem; max-width: 120px; }
+.why-me { margin-top: 40px; color: #B0C0D0; font-size: 1rem; max-width: 560px; line-height: 1.7; border-left: 2px solid #3ECF8E; padding-left: 20px; }
+
+/* ДЕСКТОП: фото справа с рваным краем */
+@media (min-width: 769px) {
+  .hero-photo {
+    display: block;
+    flex: 0 0 42%;
+    height: 80vh;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000' preserveAspectRatio='none'%3E%3Cpolygon points='15,0 100,0 100,1000 15,1000 20,900 10,800 22,700 8,600 20,500 12,400 24,300 10,200 18,100' fill='black'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000' preserveAspectRatio='none'%3E%3Cpolygon points='15,0 100,0 100,1000 15,1000 20,900 10,800 22,700 8,600 20,500 12,400 24,300 10,200 18,100' fill='black'/%3E%3C/svg%3E");
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+  }
+}
+
+/* УСЛУГИ */
+.services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-top: 30px; }
+.service-card { background: #0D1520; border: 1px solid #1E2D42; border-radius: 32px; padding: 28px; transition: 0.25s; display: flex; flex-direction: column; }
+.service-card:hover { transform: translateY(-4px); border-color: #3ECF8E; box-shadow: 0 12px 30px -8px rgba(0,0,0,0.5); }
+.card-header { display: flex; justify-content: space-between; margin-bottom: 20px; font-family: 'Unbounded', sans-serif; }
+.service-name { font-size: 1.6rem; font-weight: 600; }
+.service-price { color: #3ECF8E; font-weight: 600; font-size: 1.3rem; }
+.service-desc { list-style: none; margin: 0 0 20px 0; color: #C0D0E0; }
+.service-desc li { margin-bottom: 8px; padding-left: 20px; position: relative; }
+.service-desc li::before { content: "—"; color: #3ECF8E; position: absolute; left: 0; }
+.service-desc li.note-item { color: #64748B; font-size: 0.85rem; font-style: italic; border-top: 1px dashed #1E2D42; padding-top: 10px; margin-top: 8px; }
+.service-desc li.note-item::before { content: ""; }
+
+.case-preview { margin-top: auto; padding-top: 20px; }
+.case-preview-inner { border-radius: 16px; overflow: hidden; border: 1px solid #1E2D42; }
+.case-preview-inner img { width: 100%; height: auto; display: block; }
+
+.case-link-block { padding: 10px 16px; background: #0f1824; border-top: 1px solid #1E2D42; display: flex; justify-content: space-between; align-items: center; }
+.case-link-block a { color: #3ECF8E; font-size: 0.8rem; font-weight: 500; display: inline-flex; align-items: center; gap: 6px; }
+.case-link-block a:hover { opacity: 0.8; gap: 10px; }
+.case-link-block a::after { content: "→"; font-size: 1.1rem; }
+.case-label { color: #64748B; font-size: 0.8rem; font-style: italic; }
+
+.extras-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0; }
+.extra-item { background: #080C14; border-radius: 30px; padding: 10px 14px; border: 1px solid #1E2D42; display: flex; flex-direction: column; align-items: center; text-align: center; font-size: 0.85rem; line-height: 1.4; }
+.extra-item .extra-title { color: #E2E8F0; }
+.extra-item .extra-price { color: #3ECF8E; font-weight: 600; }
+
+/* РЕФЕРАЛЬНАЯ */
+.ref-card { background: #0D1520; border: 1px solid #1E2D42; border-radius: 48px; padding: 48px; }
+.ref-card h2 { font-size: 2.2rem; margin-bottom: 20px; }
+.ref-card > p { font-size: 1.3rem; color: #B0C0D0; margin-bottom: 32px; }
+.ref-grid { display: flex; flex-wrap: wrap; gap: 16px; margin: 32px 0 24px; justify-content: center; }
+.ref-amount { background: #080C14; border: 1px solid #1E2D42; border-radius: 60px; padding: 14px 20px; text-align: center; flex: 0 1 auto; display: flex; flex-direction: column; align-items: center; line-height: 1.4; min-width: 130px; }
+.ref-amount .title { font-size: 0.95rem; color: #E2E8F0; font-weight: 400; font-family: 'Inter', sans-serif; }
+.ref-amount .price { font-size: 1.1rem; font-weight: 700; color: #3ECF8E; font-family: 'Unbounded', sans-serif; }
+.ref-list { list-style: none; color: #E2E8F0; columns: 2; column-gap: 40px; font-size: 1rem; }
+.ref-list li { margin-bottom: 12px; padding-left: 24px; position: relative; }
+.ref-list li::before { content: "•"; color: #3ECF8E; font-size: 1.5rem; position: absolute; left: 0; top: -6px; }
+
+/* КОНТАКТЫ */
+.contacts-center { display: flex; justify-content: center; }
+.consult-card { background: #0D1520; border: 1px solid #3ECF8E; border-radius: 32px; padding: 40px; display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 560px; width: 100%; }
+.consult-card p { font-size: 1.2rem; margin-bottom: 28px; color: #B0C0D0; line-height: 1.6; }
+.telegram-btn { background: #3ECF8E; color: #080C14; padding: 16px 32px; border-radius: 60px; font-weight: 600; font-size: 1rem; }
+.telegram-btn:hover { background: #2fb57a; transform: translateY(-3px); }
+
+/* ФУТЕР */
+footer { padding: 32px 0; border-top: 1px solid #1E2D42; margin-top: 80px; }
+.footer-inner { display: flex; justify-content: space-between; color: #94A3B8; font-size: 0.9rem; }
+.footer-logo { color: #3ECF8E; font-weight: 600; }
+
+/* АДАПТИВ */
+@media (max-width: 768px) {
+  .nav-links { display: none; } .burger { display: flex; } .mobile-menu { display: flex; }
+  .hero-section {
+    background-image: url('hero.webp');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: scroll;
+    width: 100%;
+    position: relative;
+  }
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+   background: linear-gradient(to bottom, #080C14 0%, rgba(8,12,20,0.8) 40%, rgba(8,12,20,0.9) 80%, #080C14 100%), linear-gradient(to left, #080C14 0%, transparent 30%);
+
+    z-index: 0;
+  }
+  .hero-content { position: relative; z-index: 1; }
+  .hero-inner { min-height: unset; }
+  .services-grid { grid-template-columns: 1fr; }
+  .ref-list { columns: 1; } .ref-card { padding: 28px 20px; }
+  .ref-card h2 { font-size: 1.8rem; } .ref-card > p { font-size: 1.1rem; }
+  .case-preview-inner img { height: 160px; }
+}
+@media (min-width: 769px) { .mobile-menu { display: none !important; } }
+@media (max-width: 480px) {
+  .stats { gap: 10px; } .stat-item .stat-number { font-size: 1.6rem; } .stat-item p { font-size: 0.85rem; }
+  .card-header { flex-direction: column; gap: 4px; } .hero-title { font-size: 2.2rem; }
+  .container { padding: 0 16px; } .contact-row { gap: 8px; } .social-btn { padding: 10px 16px; font-size: 0.9rem; }
+  .ref-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .ref-amount { min-width: unset; width: 100%; padding: 12px 8px; }
+  .ref-list { font-size: 0.95rem; }
+}
+
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="logo">Степан</a>
+      <div class="nav-links">
+        <a href="#services">Услуги</a>
+        <a href="#referral">Реферальная</a>
+        <a href="#contacts">Контакты</a>
+        <a href="#contacts" class="nav-btn">Написать →</a>
+      </div>
+      <button class="burger" id="burgerBtn" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services" onclick="closeMenu()">Услуги</a>
+    <a href="#referral" onclick="closeMenu()">Реферальная</a>
+    <a href="#contacts" onclick="closeMenu()">Контакты</a>
+    <a href="#contacts" class="nav-btn" onclick="closeMenu()">Написать →</a>
+  </div>
+
+  <main>
+    <div class="container">
+
+  <!-- HERO -->
+  <section class="hero-section">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="badge"><span class="pulse-dot"></span> Открыт для новых проектов</div>
+        <h1 class="hero-title">Делаю сайты которые продают</h1>
+        <p class="hero-sub">Лендинги и сайты-визитки под ключ — от идеи до готовой страницы. Без конструкторов, без подписок. Сайт полностью ваш.</p>
+        <div class="contact-label">Свяжитесь любым удобным способом</div>
+        <div class="contact-row">
+          <a href="https://t.me/y14kk" target="_blank" class="social-btn">Telegram</a>
+          <a href="https://vk.ru/y14kk" target="_blank" class="social-btn">ВКонтакте</a>
+          <a href="https://www.avito.ru/user/81065cc954c56b13696a35ab404d61ce/profile?src=sharing" target="_blank" class="social-btn">Авито</a>
+        </div>
+        <div class="stats">
+          <div class="stat-item"><span class="stat-number">3</span><p>Готовых кейса</p></div>
+          <div class="stat-item"><span class="stat-number">24ч</span><p>Минимальный срок</p></div>
+          <div class="stat-item"><span class="stat-number">4</span><p>Тарифа под любую задачу</p></div>
+        </div>
+        <div class="why-me">
+          Работаю один — вы всегда общаетесь напрямую с тем кто делает сайт. Цена фиксируется до старта и не меняется. Тексты согласуем до вёрстки — правок будет меньше. Нашли мою ошибку после сдачи — исправлю бесплатно.
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="hero.webp" alt="">
+      </div>
+    </div>
+  </section>
+
+  <!-- УСЛУГИ -->
+  <section id="services">
+    <h2>Услуги</h2>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="card-header"><span class="service-name">Экспресс</span><span class="service-price">15 000 ₽ / 2д</span></div>
+        <ul class="service-desc">
+          <li>фиксированный шаблон под ваш бизнес</li>
+          <li>тексты под ваш бизнес</li>
+          <li>форма заявок с уведомлением в Telegram</li>
+          <li>базовое SEO — title, description, robots</li>
+          <li>деплой на GitHub Pages</li>
+          <li>один круг правок</li>
+          <li class="note-item">нестандартные доработки от 1 000 ₽</li>
+        </ul>
+        <div class="case-preview">
+          <div class="case-preview-inner">
+            <img src="master.webp" alt="КлиматМастер">
+            <div class="case-link-block"><a href="https://y14kk.github.io/studious-eureka/" target="_blank">Посмотреть сайт</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="card-header"><span class="service-name">Старт</span><span class="service-price">35 000 ₽ / 5д</span></div>
+        <ul class="service-desc">
+          <li>структура и тексты под ваш бизнес</li>
+          <li>вёрстка с нуля, адаптив под мобильные</li>
+          <li>форма заявок с уведомлением в Telegram</li>
+          <li>анимации при скролле и hover-эффекты</li>
+          <li>SEO и превью при отправке ссылки</li>
+          <li>деплой на GitHub Pages</li>
+          <li>два круга правок</li>
+          <li class="note-item">нестандартные доработки от 1 000 ₽</li>
+        </ul>
+        <div class="case-preview">
+          <div class="case-preview-inner">
+            <img src="scoot.webp" alt="NIGHTSCOOT">
+            <div class="case-link-block"><a href="https://y14kk.github.io/reimagined-computing-machine/" target="_blank">Посмотреть сайт</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="card-header"><span class="service-name">Стандарт</span><span class="service-price">55 000 ₽ / 7д</span></div>
+        <ul class="service-desc">
+          <li>всё из тарифа Старт</li>
+          <li>расширенные анимации и переходы</li>
+          <li>полная SEO-разметка и превью</li>
+          <li>Яндекс.Метрика — счётчик посещений</li>
+          <li>три круга правок</li>
+          <li class="note-item">нестандартные доработки от 1 000 ₽</li>
+        </ul>
+        <div class="case-preview">
+          <div class="case-preview-inner">
+            <img src="broker.webp" alt="Broker.deal">
+            <div class="case-link-block"><a href="https://y14kk.github.io/laughing-eureka/" target="_blank">Посмотреть сайт</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="card-header"><span class="service-name">Визитка</span><span class="service-price">5 000 ₽ / 2д</span></div>
+        <ul class="service-desc">
+          <li>фото, имя, описание</li>
+          <li>кнопки контактов</li>
+          <li>услуги и цены</li>
+          <li>портфолио</li>
+          <li>базовые анимации</li>
+          <li>один круг правок</li>
+          <li class="note-item">другие доработки от 500 ₽</li>
+        </ul>
+        <div class="extras-grid">
+          <span class="extra-item"><span class="extra-title">Отзывы</span><span class="extra-price">+500 ₽</span></span>
+          <span class="extra-item"><span class="extra-title">Favicon</span><span class="extra-price">+500 ₽</span></span>
+          <span class="extra-item"><span class="extra-title">og:image</span><span class="extra-price">+1 000 ₽</span></span>
+          <span class="extra-item"><span class="extra-title">Базовое SEO</span><span class="extra-price">+500 ₽</span></span>
+        </div>
+        <div class="case-preview">
+          <div class="case-preview-inner">
+            <img src="stepan.webp" alt="Пример визитки">
+            <div class="case-link-block">
+              <span class="case-label">этот сайт — пример визитки</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- РЕФЕРАЛЬНАЯ -->
+  <section id="referral">
+    <div class="ref-card">
+      <h2>Рекомендуй — получай деньги</h2>
+      <p>Приведи клиента который купит услугу — получи вознаграждение.</p>
+      <div class="ref-grid">
+        <span class="ref-amount"><span class="title">Визитка</span><span class="price">500 ₽</span></span>
+        <span class="ref-amount"><span class="title">Экспресс</span><span class="price">1 200 ₽</span></span>
+        <span class="ref-amount"><span class="title">Старт</span><span class="price">2 800 ₽</span></span>
+        <span class="ref-amount"><span class="title">Стандарт</span><span class="price">4 400 ₽</span></span>
+      </div>
+      <ul class="ref-list">
+        <li>клиент должен быть новым и оплатить услугу полностью</li>
+        <li>выплата в течение 3 дней после финального платежа клиента</li>
+        <li>только от фиксированной стоимости тарифа без учёта допов</li>
+        <li>реферал засчитывается если клиент вышел на контакт в течение 30 дней</li>
+        <li>подтверждение — скрин переписки или слова клиента</li>
+        <li>выплата переводом на карту</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- КОНТАКТЫ -->
+  <section id="contacts">
+    <div class="contacts-center">
+      <div class="consult-card">
+        <p>Не знаете с чего начать? Проведу бесплатную консультацию 15 минут — расскажу какой тариф подойдёт.</p>
+        <a href="https://t.me/y14kk" target="_blank" class="telegram-btn">Написать в Telegram →</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span class="footer-logo">Степан</span>
+      <span>Лендинги и визитки под ключ · 2026</span>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const burger = document.getElementById('burgerBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (!burger || !mobileMenu) return;
+      function toggleMenu() { burger.classList.toggle('active'); mobileMenu.classList.toggle('open'); document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : ''; }
+      burger.addEventListener('click', toggleMenu);
+      window.closeMenu = function() { burger.classList.remove('active'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; };
+      document.querySelectorAll('.mobile-menu a').forEach(link => link.addEventListener('click', () => closeMenu()));
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href === "#") return;
+          const target = document.querySelector(href);
+          if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
